@@ -14,7 +14,7 @@ const ProductList = () => {
         const response = await axios.get('http://localhost:8000/products');
         setProducts(response.data);
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.log('Error fetching products:', error);
       }
     };
 
@@ -27,7 +27,7 @@ const ProductList = () => {
       await axios.delete(`http://localhost:8000/products/${productId}`);
       setProducts(products.filter((product) => product.id !== productId));
     } catch (error) {
-      console.error('Error deleting product:', error);
+      console.log('Error deleting product:', error);
     }
   };
 
@@ -41,7 +41,7 @@ const ProductList = () => {
       setNewProduct({ name: '', price: 0 });
       setShowModal(false);
     } catch (error) {
-      console.error('Error adding product:', error);
+      console.log('Error adding product:', error);
     }
   };
 
@@ -85,7 +85,7 @@ const ProductList = () => {
               />
             </label>
             <div className="modal-buttons">
-              <button type="submit">Add</button>
+              <button type="submit">Confirm</button>
               <button onClick={() => setShowModal(false)}>Cancel</button>
             </div>
           </form>
